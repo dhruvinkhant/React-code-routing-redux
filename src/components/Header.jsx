@@ -57,10 +57,10 @@ const items = [
   {
     label: (
       <a href="https://www.linkedin.com/in/dhruvin-khant-0959a31b3/" target="_blank" rel="noopener noreferrer">
-        Profile - Link
+        Counter
       </a>
     ),
-    key: 'alipay',
+    key: 'counter',
   },
 ];
 const Header = () => {

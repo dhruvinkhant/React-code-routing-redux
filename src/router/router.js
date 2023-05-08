@@ -1,10 +1,15 @@
 import ContactForm from "../components/ContactForm";
 import Home from "../components/Home";
-import View from "../components/About";
 import About from "../components/About";
 import Login from "../pages/Login";
+import Counter from "../components/Counter";
 
 const  routerList = [
+    {
+        path:'/login',
+        Component: Login,
+        isProtected: false
+    },
     {
         path:'/',
         Component: Home,
@@ -21,9 +26,10 @@ const  routerList = [
         isProtected: true,
     },
     {
-        path:'/login',
-        Component: Login,
-        isProtected: false
+        path:'/counter',
+        Component: Counter,
+        isProtected: true
+
     }
 ]
 
