@@ -13,7 +13,7 @@ const formSlice = createSlice({
     }, // Set initial state as a number instead of an empty array
     reducers: {
         updateFormData(state, action){
-            state.push(action.payload)
+            state[action.payload](action.payload)
         }
 
     }
