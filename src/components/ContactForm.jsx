@@ -16,14 +16,14 @@ const ContactForm = () => {
   // });
 
   const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    const updatedValue = type === 'checkbox' ? checked : value;
+    // const { name, value, type, checked } = event.target;
+    // const updatedValue = type === 'checkbox' ? checked : value;
 
     // setFormData((prevFormData) => ({
     //   ...prevFormData,
     //   [name]: updatedValue,
     // }));
-    dispatch(updateFormData({ [name]: updatedValue }));
+    dispatch(updateFormData(event.target));
   };
 
   const handleSubmit = (event) => {

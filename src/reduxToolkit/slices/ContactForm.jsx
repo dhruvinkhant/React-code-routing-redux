@@ -13,7 +13,12 @@ const formSlice = createSlice({
     }, // Set initial state as a number instead of an empty array
     reducers: {
         updateFormData(state, action){
-            state[action.payload](action.payload)
+            // console.log("called the updateFormData")
+            const { name, value, type, checked } = action.payload;
+            const updatedValue = type === 'checkbox' ? checked : value;
+            // console.log("updatedValue___",updatedValue)
+      
+            state[name] = updatedValue;
         }
 
     }
