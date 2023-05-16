@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
     entry: "./src/index.js",
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         rules: [
             {
@@ -25,9 +28,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: 'public/index.html',
-          favicon: 'public/favicon.ico'
+            template: 'public/index.html',
+            favicon: 'public/favicon.ico'
         })
-      ],
-    mode: 'development'
+    ],
+    mode: 'development',
+    devServer: {
+        port: 3000
+    }
 };

@@ -1,29 +1,24 @@
 import React, { useState } from 'react';
-import { updateFormData } from '../reduxToolkit/slices/ContactForm';
-import { useDispatch, useSelector } from 'react-redux';
 
-const ContactForm = () => {
-  const formData = useSelector((state) => state.formdata);
-  const dispatch = useDispatch();
-  // const [formData, setFormData] = useState({
-  //   textInput: '',
-  //   emailInput: '',
-  //   passwordInput: '',
-  //   checkboxInput: false,
-  //   radioInput: '',
-  //   selectInput: '',
-  //   textareaInput: '',
-  // });
+const FormComponent = () => {
+  const [formData, setFormData] = useState({
+    textInput: '',
+    emailInput: '',
+    passwordInput: '',
+    checkboxInput: false,
+    radioInput: '',
+    selectInput: '',
+    textareaInput: '',
+  });
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
     const updatedValue = type === 'checkbox' ? checked : value;
 
-    // setFormData((prevFormData) => ({
-    //   ...prevFormData,
-    //   [name]: updatedValue,
-    // }));
-    dispatch(updateFormData({ [name]: updatedValue }));
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: updatedValue,
+    }));
   };
 
   const handleSubmit = (event) => {
@@ -127,4 +122,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default FormComponent;
