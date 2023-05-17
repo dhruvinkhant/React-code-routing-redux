@@ -7,11 +7,17 @@ const toDoSlice = createSlice({
         addItem(state, action) {
             state.push(action.payload) 
         },
-        removeAllItem(state, action) {
+        removeSingleItem(state, action) {
             state.splice(action.payload, 1)
+        },
+        removeAllItem(state){
+            if(state.length === 0){
+                alert("There is not iteam in the list")
+            }
+            state.splice(0, state.length);
         }
     }
 });
 
 export default toDoSlice.reducer;
-export const { addItem, removeAllItem } = toDoSlice.actions;
+export const { addItem, removeAllItem, removeSingleItem } = toDoSlice.actions;

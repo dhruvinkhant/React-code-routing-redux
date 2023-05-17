@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { updateFormData } from '../reduxToolkit/slices/ContactForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, removeAllItem } from '../reduxToolkit/slices/Todo';
+import { addItem, removeAllItem, removeSingleItem } from '../reduxToolkit/slices/Todo';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -45,8 +45,12 @@ const ContactForm = () => {
   };
 
   const handleRemove = (index) => {
-    dispatch(removeAllItem(index))
+    dispatch(removeSingleItem(index))
     console.log("index", index)
+  }
+
+  const handleRemoveAllItem = () => {
+    dispatch(removeAllItem())
   }
 
   return (
@@ -142,12 +146,13 @@ const ContactForm = () => {
 
         <button type="submit">Submit</button>
       </form>
-
-      <input type="text" style={{ marginTop: '30px'}} value={itemvalue} onChange={(event) => setValue(event.target.value)} />
+      <h1>ToDo List</h1>
+      <input type="text" style={{ marginTop: '30px' }} value={itemvalue} onChange={(event) => setValue(event.target.value)} />
       <button onClick={() => handleAddItem()}>Add Item</button>
+      <button onClick={() => handleRemoveAllItem()}>Remove All</button>
 
       {todoitems.length > 0 && todoitems.map((item, index) => (
-        <div style={{display:'flex', flexDirection:'row'}}><p key={index}>{item}</p><button style={{width:'fit-content', height:'fit-content'}} onClick={() => handleRemove(index)}>RemoveItem</button></div>
+        <div style={{ display: 'flex', flexDirection: 'row' }}><p key={index}>{item}</p><button style={{ width: 'fit-content', height: 'fit-content' }} onClick={() => handleRemove(index)}>RemoveItem</button></div>
       ))}
 
     </>
