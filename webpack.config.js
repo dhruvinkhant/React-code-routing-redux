@@ -29,11 +29,14 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'public/index.html',
-            favicon: 'public/favicon.ico'
+            favicon: 'public/favicon.ico',
+            title: 'Hot Module Replacement',
         })
     ],
     mode: 'development',
     devServer: {
-        port: 3000
+        port: 3000,
+        historyApiFallback: true,
+        hot: true,
     }
 };
